@@ -1,0 +1,26 @@
+{
+	"name": "one-click-outside",
+	"title": "jQuery one click outside",
+	"description": "get called once if someone clicked outside",
+	"keywords": [
+		"jquery",
+		"events",
+		"outside",
+		"plugins"
+	],
+	"version": "0.1.0",
+	"author": {
+		"name": "Christian Voigt",
+		"email": "1pxsolidblack@gmail.com",
+		"url": "https://github.com/christianvoigt"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://en.wikipedia.org/wiki/MIT_License"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.7"
+	}
+}
