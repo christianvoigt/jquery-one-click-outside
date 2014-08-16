@@ -1,7 +1,7 @@
 {
 	"name": "one-click-outside",
 	"title": "jQuery one click outside",
-	"description": "get called once if someone clicked outside",
+	"description": "get called if someone clicks outside",
 	"keywords": [
 		"jquery",
 		"events",

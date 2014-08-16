@@ -1,7 +1,7 @@
 {
 	"name": "jquery-one-click-outside",
 	"title": "jQuery one click outside",
-	"description": "Get called once if someone clicked outside.",
+	"description": "Get called if someone clicks outside.",
 	"author": "Christian Voigt",
 	"version": "0.1.0",
 	"devDependencies": {
