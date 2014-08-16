@@ -1,6 +1,6 @@
 #jQuery One Click Outside
 
-jQuery.oneClickOutside is a lightweight jQuery plugin (1kb) that let's you add a one-time callback to any element that gets called if the user clicks outside of the element. After that all event listeners are automatically removed and the plugin instance is destroyed.
+jQuery.oneClickOutside is a lightweight jQuery plugin (1kb) that let's you add a one-time callback for a click outside of an element. After that all event listeners are automatically removed and the plugin instance is destroyed.
 
 Click [here](http://christianvoigt.github.io/jquery-one-click-outside/demo/) for a demo.
 
