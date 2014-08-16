@@ -1,6 +1,6 @@
 /*
  *  jQuery one click outside - v0.1.0
- *  get called once if someone clicked outside
+ *  get called if someone clicks outside
  *  
  *
  *  Made by Christian Voigt
@@ -21,7 +21,7 @@
 				init: function (calledFromClickInsideHandler) {
 					var that = this,
 					outside = (calledFromClickInsideHandler)? false: true;
-					this.$el = $(this);
+					this.$el = $(this.element);
 					this.clickInsideHandler = function(){
 						outside = false;
 					};

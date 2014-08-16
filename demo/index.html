@@ -9,7 +9,8 @@
 	<h1>jQuery One Click Outside Demo</h1>
 	<div class="outside" style="float:left; width:500px; height:500px; background-color:yellow;">
 		<div class="inside" style="padding:1em; font-family:sans-serif; width:200px; height:200px; background-color:red;">
-			Click to activate oneClickOutside
+			<div class="text">Click to activate oneClickOutside</div>
+			<div style="width:50px; height:50px; background-color:black;"></div>
 		</div>
 	</div>
 	<div style="float:left; width:400px; height:400px; background-color:blue;"></div>
@@ -17,12 +18,13 @@
 			$(function() {
 				var activated;
 				var $inside = $(".inside");
+				var $text = $inside.children(".text");
 				$inside.on("click",function(){
 					if(!activated){
 						activated = true;
-						$inside.empty().append("click outside to trigger callback!");
+						$text.empty().append("click outside to trigger callback!");
 						$inside.oneClickOutside(function(){
-							$inside.empty().append("You clicked outside! Click inside again, to reactivate oneClickOutside.");
+							$text.empty().append("You clicked outside! Click inside again, to reactivate oneClickOutside.");
 							activated = false;
 						}, true);
 					}

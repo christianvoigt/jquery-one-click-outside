@@ -13,7 +13,7 @@
 				init: function (calledFromClickInsideHandler) {
 					var that = this,
 					outside = (calledFromClickInsideHandler)? false: true;
-					this.$el = $(this);
+					this.$el = $(this.element);
 					this.clickInsideHandler = function(){
 						outside = false;
 					};
