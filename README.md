@@ -24,6 +24,16 @@ If you decide that you want to cancel the callback, use the "off" method:
     $(".some-element").oneClickOutside("off");
 ```
 
+If you are initializing oneClickOutside from a click handler for the same element, you have to tell that to oneClickOutside with a second parameter:
+
+```javascript
+    $(".some-element").oneClickOutside(function(){
+    	$(".some-element").hide();
+    },
+    true //parameter: calledFromClickInsideHandler
+    );
+```
+
 ##license
 
 The MIT License (MIT)
