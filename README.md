@@ -13,9 +13,9 @@ Download the [production version][min] (_minified_) or the [development version]
 ##basic use
 
 ```javascript
-    $(".some-element").oneClickOutside(function(){
+    $(".some-element").oneClickOutside({callback:function(){
     	$(".some-element").hide();
-    });
+    }});
 ```
 
 If you decide that you want to cancel the callback, use the "off" method:
@@ -24,14 +24,23 @@ If you decide that you want to cancel the callback, use the "off" method:
     $(".some-element").oneClickOutside("off");
 ```
 
+If you have some outside elements that should not trigger the callback, define some exceptions:
+```javascript
+    $(".some-element").oneClickOutside({callback:function(){
+    	$(".some-element").hide();
+    },
+    exceptions:".exception"
+    });
+```
+
 If you are initializing oneClickOutside from a click handler for the same element, you have to tell that to oneClickOutside with a second parameter:
 
 ```javascript
-    $(".some-element").oneClickOutside(function(){
+    $(".some-element").oneClickOutside({callback:function(){
     	$(".some-element").hide();
     },
-    true //parameter: calledFromClickInsideHandler
-    );
+    calledFromClickInsideHandler:true //parameter: calledFromClickInsideHandler
+    });
 ```
 
 ##license
