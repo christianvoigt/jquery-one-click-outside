@@ -3,7 +3,7 @@
 	"title": "jQuery one click outside",
 	"description": "Get called if someone clicks outside.",
 	"author": "Christian Voigt",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"devDependencies": {
 		"grunt": "~0.4.1",
 		"grunt-cli": "~0.1.7",

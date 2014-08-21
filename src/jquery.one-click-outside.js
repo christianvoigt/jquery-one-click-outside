@@ -1,12 +1,17 @@
 ;(function ( $, window, document, undefined ) {
 
-		var pluginName = "oneClickOutside";
+		var pluginName = "oneClickOutside",
+		defaults = {
+			callback: null,
+			calledFromClickInsideHandler: false,
+			exceptions: null
+		};
 
-		function Plugin ( element, callback, calledFromClickInsideHandler ) {
+		function Plugin ( element, options) {
 				this.element = element;
 				this._name = pluginName;
-				this.clickOutsideCallback = callback;
-				this.init(calledFromClickInsideHandler);
+				this.options = $.extend( {}, defaults, options );
+				this.init(options.calledFromClickInsideHandler);
 		}
 
 		$.extend(Plugin.prototype, {
@@ -19,12 +24,15 @@
 					};
 					this.clickOutsideHandler = function(){
 						if(outside){
-							that.clickOutsideCallback();
+							that.options.callback();
 							that.destroy();
 						}
 						outside = true;
 					};
 					this.$el.on("click",this.clickInsideHandler);
+					if(this.options.exceptions){
+						$(this.options.exceptions).on("click", this.clickInsideHandler);
+					}
 					$(document).on("click",this.clickOutsideHandler);
 				},
 				destroy : function(){
@@ -33,16 +41,19 @@
 				},
 				removeListeners : function(){
 					this.$el.off("click",this.clickInsideHandler);
+					if(this.options.exceptions){
+						$(this.options.exceptions).off("click", this.clickInsideHandler);
+					}
 					$(document).off("click",this.clickOutsideHandler);
 				}
 		});
 
-		$.fn[ pluginName ] = function ( callback, calledFromClickInsideHandler ) {
+		$.fn[ pluginName ] = function ( options ) {
 				this.each(function() {
 						var plugin = $.data( this, "plugin_" + pluginName );
-						if (Object.prototype.toString.call(callback) === "[object Function]" && !plugin ) {
-								$.data( this, "plugin_" + pluginName, new Plugin( this, callback, calledFromClickInsideHandler ) );
-						}else if(callback === "off" && plugin){
+						if (options !== null && typeof options === "object" && !plugin ) {
+								$.data( this, "plugin_" + pluginName, new Plugin( this, options ) );
+						}else if(options === "off" && plugin){
 							plugin.destroy();
 						}
 				});
