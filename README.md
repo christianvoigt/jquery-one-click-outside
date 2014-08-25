@@ -43,6 +43,17 @@ If you are initializing oneClickOutside from a click handler for the same elemen
     });
 ```
 
+If you want to refer with "this" to the object the callback is a member of from within the callback, use the thisArg option:
+```javascript
+	var obj = {
+		callback:function(){
+    		alert("My name is "+this.name);
+    	},
+    	name:"Peter"
+	};
+    $(".some-element").oneClickOutside({callback:obj.callback, thisArg:obj});
+```
+
 ##license
 
 The MIT License (MIT)

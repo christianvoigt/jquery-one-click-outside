@@ -1,5 +1,5 @@
 /*
- *  jQuery one click outside - v0.1.1
+ *  jQuery one click outside - v0.1.3
  *  get called if someone clicks outside
  *  
  *
@@ -32,7 +32,7 @@
 					};
 					this.clickOutsideHandler = function(){
 						if(outside){
-							that.options.callback();
+							that.options.callback.apply(that.options.thisArg || this);
 							that.destroy();
 						}
 						outside = true;

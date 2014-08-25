@@ -24,7 +24,7 @@
 					};
 					this.clickOutsideHandler = function(){
 						if(outside){
-							that.options.callback();
+							that.options.callback.apply(that.options.thisArg || this);
 							that.destroy();
 						}
 						outside = true;
